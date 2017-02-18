@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'demo/index'
   get 'demo/helo'
 
+  get 'demo/other_hello'
+  get 'demo/lynda'
+
   # default route
   # may go away in the future versions in Rails
   get ':controller(/:action(:/id))'
