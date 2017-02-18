@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'demo#index'
   get 'demo/index'
+  get 'demo/helo'
 
   # default route
   # may go away in the future versions in Rails
