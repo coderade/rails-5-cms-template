@@ -1,1 +1,15 @@
 <h1>Hello Rails from index!</h1>
+
+
+<!--normal link-->
+<a href="/demo/hello">Normal link</a>
+<br>
+
+<!--rails link-->
+<%= link_to('Hello Rails link', {:controller => 'demo', :action => 'hello'}) %>
+
+<br>
+<!--rails link with parameters-->
+<%= link_to('Hello Rails with parameters', {:controller => 'demo', :action => 'hello',
+                                            :page => 5, :id=>20}) %>
+

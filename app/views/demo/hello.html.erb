@@ -2,5 +2,19 @@
 
 <!-- instance variables-->
 <% @array.each do |n| %>
-  <%=	 n %><br>
-<%	 end %>
+    <%=	n %><br>
+<% end %>
+
+
+<%= link_to('Hello Rails link', {:controller => 'demo', :action => 'index'}) %>
+
+<br>
+<!--using instance variables-->
+ID: <%=	@id  %><br>
+<!--using url parameters-->
+ID: <%=	params[:id]  %><br>
+
+page: <%=	@page  %><br>
+page: <%=	params[:page]  %><br>
+
+next page: <%=	@page.to_i + 1  %><br>
