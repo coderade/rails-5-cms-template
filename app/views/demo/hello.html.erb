@@ -1,22 +1,6 @@
 <h1>Hello Rails from hello!</h1>
 
-<%=	 1 + 1 %>
-<br>
-<div>
-  <% target="world" %>
-  <%=	 "Hello #{target}" %>
-</div>
-
-<!--ruby loop-->
-<%=
-3.times do |n|
-  puts n
-  end
-%>
-<br><br>
-
-
-<!--rails loop-->
-<%	 3.times do |n| %>
+<!-- instance variables-->
+<% @array.each do |n| %>
   <%=	 n %><br>
 <%	 end %>
