@@ -9,7 +9,7 @@ class CreateSections < ActiveRecord::Migration[5.0]
       t.text 'content'
       t.timestamps
     end
-    add_index('pages', 'subject_id')
+    add_index('sections', 'page_id')
   end
 
   def down

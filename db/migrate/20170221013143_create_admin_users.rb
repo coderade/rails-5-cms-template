@@ -1,6 +1,6 @@
-class CreateUsers < ActiveRecord::Migration[5.0]
+class CreateAdminUsers < ActiveRecord::Migration[5.0]
   def up
-    create_table :users do |t|
+    create_table :admin_users do |t|
 
       t.column 'first_name', :string, :limit => 25
       t.string 'last_name', :limit => 50
@@ -15,7 +15,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
   end
 
   def down
-    drop_table :users
+    drop_table :admin_users
   end
 
 end

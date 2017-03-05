@@ -5,7 +5,7 @@ class CreateAdminUsersPagesJoin < ActiveRecord::Migration[5.0]
       t.integer 'page_id'
     end
 
-    add_index('admin_users_pages', ["admin_user_id", "page_id"])
+    add_index('admin_users_pages', %w(admin_user_id, page_id))
   end
 
   def down
