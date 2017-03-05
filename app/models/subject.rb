@@ -1,8 +1,6 @@
 class Subject < ApplicationRecord
 
-  # testing One-to-one
-
-  has_one :page
+  has_many :pages
 
   scope :visible, -> {where(:visible =>true)}
   scope :invisible, -> {where(:visible =>false)}
