@@ -8,6 +8,19 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :pages do
+    member do
+      get :delete
+    end
+  end
+
+  resources :sections do
+    member do
+      get :delete
+    end
+  end
+
+
   get 'demo/index'
   get 'demo/helo'
 
