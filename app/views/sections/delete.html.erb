@@ -5,6 +5,8 @@
 
   <%= form_for(@section, :method => 'delete') do  |f| %>
 
+      <% @page_title = 'Delete section ' + f.object.name %>
+
       <p>Are you sure you want to permanently delete this section?</p>
 
       <p class="reference-name"><%=	 f.object.name %></p>

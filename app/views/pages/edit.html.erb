@@ -6,6 +6,8 @@
   <%= form_for(@page) do  |f| %>
       <%=	 render(:partial => 'form', :locals => {:f => f}) %>
 
+      <% @page_title = 'Edit page ' + f.object.name %>
+
       <div class="form-buttons">
         <%=	 f.submit('Edit Page') %>
       </div>
