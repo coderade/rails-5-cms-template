@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # Add the bootstrap tothe project
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
+# Add the font-awesome icons
+gem 'font-awesome-rails'
+
 # Tooltips and popovers depend on tether for positioning.
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'

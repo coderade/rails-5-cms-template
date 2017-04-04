@@ -5,9 +5,9 @@ module SubjectsHelper
     options[:false_text] ||=''
 
     if boolean
-      content_tag(:span, options[:true_text], :class => 'status true')
+      content_tag(:span, options[:true_text], :class => 'fa fa-check text-success')
     else
-      content_tag(:span, options[:false_text], :class => 'status false')
+      content_tag(:span, options[:false_text], :class => 'fa fa-check text-danger')
     end
   end
 

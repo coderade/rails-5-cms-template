@@ -4,30 +4,36 @@
   <h2>Pages</h2>
   <%= link_to('Add New Page', new_page_path, :class => 'action new') %>
 
-  <table class="listing" summary="Page list">
-    <tr class="header">
-      <th>#</th>
-      <th>Subject ID</th>
-      <th>Page</th>
-      <th>Permalink</th>
-      <th>Visible</th>
-      <th>Sections</th>
-      <th>Actions</th>
-    </tr>
+
+  <table class="table table-striped">
+    <thead class="thead-inverse">
+      <tr>
+        <th>#</th>
+        <th>Subject ID</th>
+        <th>Page</th>
+        <th>Permalink</th>
+        <th>Visible</th>
+        <th>Sections</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
     <%	@pages.each do |page| %>
         <tr>
-          <td> <%=	 page.position %> </td>
+          <th> <%= page.position %> </th>
           <td> <%= page.subject_id %> </td>
           <td> <%= page.name %> </td>
           <td> <%= page.permalink %> </td>
-          <td class="center"> <%=	status_tag(page.visible) %> </td>
-          <td class="center"> <%= page.sections.size %> </td>
-          <td class="actions">
-            <%= link_to('Show', page_path(page), :class => 'action show') %>
-            <%= link_to('Edit', edit_page_path(page), :class => 'action edit') %>
-            <%= link_to('Delete', delete_page_path(page), :class => 'action delete') %>
+          <td> <%=	status_tag(page.visible) %> </td>
+          <td> <%= page.sections.size %> </td>
+          <td>
+            <span class="glyphicons glyphicons-ok"></span>
+            <%= link_to('Show', page_path(page), :class => 'btn btn-success') %>
+            <%= link_to('Edit', edit_page_path(page), :class => 'btn btn-info') %>
+            <%= link_to('Delete', delete_page_path(page), :class => 'btn btn-danger') %>
           </td>
         </tr>
     <% end %>
+    </tbody>
   </table>
 </div>
