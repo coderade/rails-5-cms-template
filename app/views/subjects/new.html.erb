@@ -1,15 +1,18 @@
 <% @page_title = 'Create new subject' %>
 
-<%= link_to('<< Back to List', subjects_path, :class => 'back-link')%>
+<%= link_to subjects_path , :class => 'btn btn-secondary btn-back' do %>
+    <i class="fa fa-arrow-left"></i>
+    <span>Back to List</span>
+<% end %>
 
 <h2>Create Subject</h2>
 
 <div class="subjects new">
-  <%= form_for(@subject) do  |f| %>
+  <%= form_for(@subject, :html => {:class => 'form-edit'})  do  |f| %>
 
       <%=	 render(:partial => 'form', :locals => {:f => f}) %>
       <div class="form-buttons">
-          <%=	 f.submit('Create Subject') %>
+          <%=	 f.submit('Create Subject', :class => 'btn btn-primary') %>
       </div>
   <% end %>
 </div>

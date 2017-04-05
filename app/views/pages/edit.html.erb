@@ -1,15 +1,18 @@
-<%= link_to('<< Back to List', pages_path, :class => 'back-link')%>
+<%= link_to pages_path , :class => 'btn btn-secondary btn-back' do %>
+    <i class="fa fa-arrow-left"></i>
+    <span>Back to List</span>
+<% end %>
 
 <h2>Edit Page</h2>
 
 <div class="pages new">
-  <%= form_for(@page) do  |f| %>
+  <%= form_for(@page, :html => {:class => 'form-edit'})  do  |f| %>
       <%=	 render(:partial => 'form', :locals => {:f => f}) %>
 
       <% @page_title = 'Edit page ' + f.object.name %>
 
       <div class="form-buttons">
-        <%=	 f.submit('Edit Page') %>
+        <%=	 f.submit('Edit Page', :class => 'btn btn-primary')  %>
       </div>
   <% end %>
 </div>

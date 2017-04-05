@@ -1,6 +1,24 @@
 @import "font-awesome";
 @import "bootstrap";
 
+.table-index {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.form-edit {
+  padding: 1.5rem;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  border-width: .2rem;
+  width: 60%;
+}
+
+.btn-back {
+  margin: 20px;
+}
+
 footer {
   position: absolute;
   bottom: 0;

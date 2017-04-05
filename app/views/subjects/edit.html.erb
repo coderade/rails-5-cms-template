@@ -1,9 +1,12 @@
-<%= link_to('<< Back to List', subjects_path, :class => 'back-link')%>
+<%= link_to subjects_path , :class => 'btn btn-secondary btn-back' do %>
+    <i class="fa fa-arrow-left"></i>
+    <span>Back to List</span>
+<% end %>
 
 <h2>Update Subject</h2>
 
 <div class="subjects edit">
-  <%= form_for(@subject) do  |f| %>
+  <%= form_for(@subject, :html => {:class => 'form-edit'})  do  |f| %>
       <%=	 render(:partial => 'form', :locals => {:f => f}) %>
 
       <% @page_title = 'Edit subject ' + f.object.name %>

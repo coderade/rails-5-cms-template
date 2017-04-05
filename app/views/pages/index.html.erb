@@ -27,7 +27,6 @@
           <td> <%=	status_tag(page.visible) %> </td>
           <td> <%= page.sections.size %> </td>
           <td>
-            <span class="glyphicons glyphicons-ok"></span>
             <%= link_to('Show', page_path(page), :class => 'btn btn-success') %>
             <%= link_to('Edit', edit_page_path(page), :class => 'btn btn-info') %>
             <%= link_to('Delete', delete_page_path(page), :class => 'btn btn-danger') %>
