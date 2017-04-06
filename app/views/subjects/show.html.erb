@@ -1,29 +1,30 @@
 <% @page_title = 'Show page ' + @subject.name  %>
 
-<%= link_to('<< Back to List', subjects_path, class: 'back-link') %>
+<%= link_to subjects_path , :class => 'btn btn-secondary btn-back' do %>
+    <i class="fa fa-arrow-left"></i>
+    <span>Back to List</span>
+<% end %>
 
 <div class="subjects show">
-  <h2>Show Subject</h2>
-  <table summary="Subject detail view">
-    <tr>
-      <th>Name</th>
-      <td><%= @subject.name %></td>
-    </tr>
+  <h2 class="table-title">
+    Page <strong><%= @subject.name %></strong>
+  </h2>
+  <table class="table">
     <tr>
       <th>Position</th>
       <td><%= @subject.position %></td>
     </tr>
     <tr>
       <th>Visible</th>
-      <td><%= @subject.visible ? 'true' : 'false' %></td>
+      <td><%=	status_tag(@subject.visible) %></td>
     </tr>
     <tr>
       <th>Created</th>
-      <td><%= @subject.created_at%></td>
+      <td><%= @subject.created_at.strftime('%B %d, %Y %H:%M')%></td>
     </tr>
     <tr>
       <th>Updated</th>
-      <td><%= @subject.updated_at%></td>
+      <td><%= @subject.updated_at.strftime('%B %d, %Y %H:%M')%></td>
     </tr>
   </table>
 </div>

@@ -1,14 +1,16 @@
 <% @page_title = 'Show page ' + @section.name  %>
 
-<%= link_to('<< Back to List', sections_path, class: 'back-link') %>
+<%= link_to sections_path , :class => 'btn btn-secondary btn-back' do %>
+    <i class="fa fa-arrow-left"></i>
+    <span>Back to List</span>
+<% end %>
+
 
 <div class="sections show">
-  <h2>Show Section</h2>
-  <table summary="Section detail view">
-    <tr>
-      <th>Name</th>
-      <td><%= @section.name %></td>
-    </tr>
+  <h2 class="table-title">
+    Section <strong><%= @section.name %></strong>
+  </h2>
+  <table class="table">
     <tr>
       <th>Subject_id</th>
       <td><%= @section.page_id %></td>
@@ -19,7 +21,7 @@
     </tr>
     <tr>
       <th>Visible?</th>
-      <td><%= @section.visible ? 'true' : 'false' %></td>
+      <td><%=	status_tag(@section.visible) %></td>
     </tr>
     <tr>
       <th>Content type</th>
@@ -31,11 +33,12 @@
     </tr>
     <tr>
       <th>Created</th>
-      <td><%= @section.created_at%></td>
+      <td><%= @section.created_at.strftime('%B %d, %Y %H:%M')%></td>
     </tr>
     <tr>
       <th>Updated</th>
-      <td><%= @section.updated_at%></td>
+      <td><%= @section.updated_at.strftime('%B %d, %Y %H:%M')%></td>
     </tr>
   </table>
 </div>
+
