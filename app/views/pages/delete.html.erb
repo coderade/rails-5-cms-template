@@ -1,18 +1,23 @@
-<%= link_to('<< Back to List', pages_path, :class => 'back-link')%>
+<%= link_to pages_path , :class => 'btn btn-secondary btn-back' do %>
+    <i class="fa fa-arrow-left"></i>
+    <span>Back to List</span>
+<% end %>
 
 <div class="pages delete">
-  <h2>Delete Page</h2>
+  <h2>Delete a Page</h2>
 
   <%= form_for(@page, :method => 'delete') do  |f| %>
 
-      <p>Are you sure you want to permanently delete this page?</p>
+      <p class="alert alert-danger"> Are you sure you want to permanently delete page
+        <strong> <%=	f.object.name %> </strong> ?
+      </p>
 
       <p class="reference-name"><%=	 f.object.name %></p>
 
       <% @page_title = 'Delete page ' + f.object.name %>
 
       <div class="form-buttons">
-        <%=	 f.submit('Delete Page') %>
+        <%=	 f.submit('Delete', :class => 'btn btn-danger') %>
       </div>
   <% end %>
 </div>

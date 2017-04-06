@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     @page.save
 
     if @page.save
-      flash[:notice] = 'Page created sucessfully'
+      flash[:notice] = 'Page created successfully'
       redirect_to(pages_path)
     else
       render('new')
@@ -34,7 +34,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
 
     if @page.update_attributes(page_params)
-      flash[:notice] = 'Page updated sucessfully.'
+      flash[:notice] = 'Page updated successfully.'
       redirect_to(page_path(@page))
     else
       flash[:error] = "There is an error when trying ot delete the page #{@page}. Please try again."
@@ -50,7 +50,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
 
     if @page.destroy
-      flash[:notice] = "Page #{@page.name} has been deleted sucessfully"
+      flash[:notice] = "Page #{@page.name} has been deleted successfully"
       redirect_to(pages_path)
     else
       flash[:error] = "There is an error when trying ot delete the page #{@page.name}."

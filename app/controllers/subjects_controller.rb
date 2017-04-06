@@ -19,7 +19,7 @@ class SubjectsController < ApplicationController
     @subject.save
 
     if @subject.save
-      flash[:notice] = 'Subject created sucessfully'
+      flash[:notice] = 'Subject created successfully'
       redirect_to(subjects_path)
     else
       render('new')
@@ -34,7 +34,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
 
     if @subject.update_attributes(subject_params)
-      flash[:notice] = 'Subject updated sucessfully.'
+      flash[:notice] = 'Subject updated successfully.'
       redirect_to(subjects_path)
     else
       render('edit')
@@ -49,7 +49,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
 
     if @subject.destroy
-      flash[:notice] = "Subject #{@subject.name} has been deleted sucessfully"
+      flash[:notice] = "Subject #{@subject.name} has been deleted successfully"
       redirect_to(subjects_path)
     else
       render('delete')

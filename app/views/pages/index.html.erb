@@ -2,7 +2,11 @@
 
 <div class="pages index">
   <h2>Pages</h2>
-  <%= link_to('Add New Page', new_page_path, :class => 'action new') %>
+
+  <%= link_to new_page_path , :class => 'btn btn-secondary btn-back' do %>
+      <i class="fa fa-plus-square-o"></i>
+      <span>New Page</span>
+  <% end %>
 
 
   <table class="table table-striped">

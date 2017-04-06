@@ -1,18 +1,23 @@
-<%= link_to('<< Back to List', sections_path, :class => 'back-link')%>
+<%= link_to section_path , :class => 'btn btn-secondary btn-back' do %>
+    <i class="fa fa-arrow-left"></i>
+    <span>Back to List</span>
+<% end %>
 
 <div class="sections delete">
-  <h2>Delete Section</h2>
+  <h2>Delete a Section</h2>
 
   <%= form_for(@section, :method => 'delete') do  |f| %>
 
       <% @page_title = 'Delete section ' + f.object.name %>
 
-      <p>Are you sure you want to permanently delete this section?</p>
+      <p class="alert alert-danger"> Are you sure you want to permanently delete the section
+        <strong> <%=	f.object.name %> </strong> ?
+      </p>
 
       <p class="reference-name"><%=	 f.object.name %></p>
 
       <div class="form-buttons">
-        <%=	 f.submit('Delete Section') %>
+        <%=	 f.submit('Delete', :class => 'btn btn-danger') %>
       </div>
   <% end %>
 </div>

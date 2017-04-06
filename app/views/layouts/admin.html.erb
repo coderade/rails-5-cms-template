@@ -29,7 +29,7 @@
     <div class="main">
       <% if !flash[:notice].blank? %>
           <div class="notice">
-            <%= flash[:notice] %>
+            <p class="alert alert-success"> <%= flash[:notice] %> </p>
           </div>
       <% end %>
 
@@ -39,7 +39,7 @@
     </div>
     <footer class="footer">
       <div class="container">
-        <span class="text-muted">&copy;  Coderade.io</span>
+        <span class="text-muted">&copy; Coderade.io</span>
       </div>
     </footer>
   </body>
