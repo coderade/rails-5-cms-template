@@ -19,9 +19,10 @@ class SectionsController < ApplicationController
     @section.save
 
     if @section.save
-      flash[:notice] = 'Section created successfully'
+      flash[:notice] = "The section #{@section.name} has been created successfully."
       redirect_to(sections_path)
     else
+      "There is an error when trying to create the section #{@section.name}. Please try again."
       render('new')
     end
   end
@@ -34,10 +35,10 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
 
     if @section.update_attributes(section_params)
-      flash[:notice] = 'Section updated successfully.'
+      flash[:notice] = "The section #{@section.name} has been updated successfully."
       redirect_to(section_path(@section))
     else
-      flash[:error] = "There is an error when trying ot delete the section #{@section}. Please try again."
+      flash[:error] = "There is an error when trying to update the section #{@section.name}. Please try again."
       render('edit')
     end
   end
@@ -50,10 +51,10 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
 
     if @section.destroy
-      flash[:notice] = "Section <strong> #{@section.name} </strong> has been deleted successfully"
+      flash[:notice] = "The section #{@section.name} has been deleted successfully"
       redirect_to(sections_path)
     else
-      flash[:error] = "There is an error when trying ot delete the section #{@section.name}."
+      flash[:error] = "There is an error when trying to delete the section #{@section.name}."
       render('delete')
     end
 

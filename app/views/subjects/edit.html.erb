@@ -1,15 +1,18 @@
+<% @page_title = 'Edit subject ' + @subject.name %>
+
 <%= link_to subjects_path , :class => 'btn btn-secondary btn-back' do %>
     <i class="fa fa-arrow-left"></i>
     <span>Back to List</span>
 <% end %>
 
-<h2>Update Subject</h2>
+<h2>Edit page
+  <strong><%= @subject.name %></strong>
+</h2>
+
 
 <div class="subjects edit">
   <%= form_for(@subject, :html => {:class => 'form-edit'})  do  |f| %>
       <%=	 render(:partial => 'form', :locals => {:f => f}) %>
-
-      <% @page_title = 'Edit subject ' + f.object.name %>
 
       <div class="form-buttons">
         <%=	 f.submit('Update Subject', :class => 'btn btn-primary') %>

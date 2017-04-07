@@ -3,23 +3,22 @@
 <div class="pages index">
   <h2>Pages</h2>
 
-z  <%= link_to new_page_path , :class => 'btn btn-secondary btn-back' do %>
+  <%= link_to new_page_path , :class => 'btn btn-secondary btn-back' do %>
       <i class="fa fa-plus-square-o"></i>
       <span>New Page</span>
   <% end %>
 
-
   <table class="table table-striped">
     <thead class="thead-inverse">
-      <tr>
-        <th>#</th>
-        <th>Subject ID</th>
-        <th>Page</th>
-        <th>Permalink</th>
-        <th>Visible</th>
-        <th>Sections</th>
-        <th>Actions</th>
-      </tr>
+    <tr>
+      <th>#</th>
+      <th>Subject ID</th>
+      <th>Page</th>
+      <th>Permalink</th>
+      <th>Visible</th>
+      <th>Sections</th>
+      <th>Actions</th>
+    </tr>
     </thead>
     <tbody>
     <%	@pages.each do |page| %>

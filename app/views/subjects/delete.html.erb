@@ -1,21 +1,22 @@
+<% @page_title = 'Delete subject ' + @subject.name %>
+
 <%= link_to subjects_path , :class => 'btn btn-secondary btn-back' do %>
     <i class="fa fa-arrow-left"></i>
     <span>Back to List</span>
 <% end %>
 
 <div class="subjects delete">
-  <h2>Delete a Subject</h2>
+  <h2>Delete the Subject <strong><%= @subject.name %></strong> </h2>
 
   <%= form_for(@subject, :method => 'delete') do  |f| %>
 
-      <% @page_title = 'Delete subjct ' + f.object.name %>
-
-      <p class="alert alert-danger"> Are you sure you want to permanently delete the subject
+      <p class="alert alert-danger"> Are you sure that you want to permanently delete the subject
         <strong> <%=	f.object.name %> </strong> ?
       </p>
 
       <div class="form-buttons">
-        <%=	 f.submit('Delete', :class => 'btn btn-danger') %>
+        <%=	 f.submit('Confirm', :class => 'btn btn-danger') %>
+        <%= link_to('Cancel', pages_path, :class => 'btn btn-info')%>
       </div>
   <% end %>
 </div>

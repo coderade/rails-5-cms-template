@@ -1,18 +1,20 @@
+<% @page_title = 'Edit section ' + @section.name %>
+
 <%= link_to section_path, :class => 'btn btn-secondary btn-back' do %>
     <i class="fa fa-arrow-left"></i>
     <span>Back to List</span>
 <% end %>
 
-<h2>Update Section</h2>
+<h2>Edit Section
+  <strong><%= @section.name %></strong>
+</h2>
 
 <div class="sections update">
   <%= form_for(@section, :html => {:class => 'form-edit'})  do  |f| %>
       <%=	 render(:partial => 'form', :locals => {:f => f}) %>
 
-      <% @page_title = 'Edit section ' + f.object.name %>
-
       <div class="form-buttons">
-        <%=	 f.submit('Update Section') %>
+        <%=	 f.submit('Update Section', :class => 'btn btn-primary') %>
       </div>
   <% end %>
 </div>

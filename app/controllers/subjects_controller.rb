@@ -19,9 +19,10 @@ class SubjectsController < ApplicationController
     @subject.save
 
     if @subject.save
-      flash[:notice] = 'Subject created successfully'
+      flash[:notice] =  "The subject #{@subject.name} has been updated successfully."
       redirect_to(subjects_path)
     else
+      flash[:error] = "There is an error when trying to create the subject #{@subject.name}. Please try again."
       render('new')
     end
   end
@@ -34,9 +35,10 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
 
     if @subject.update_attributes(subject_params)
-      flash[:notice] = 'Subject updated successfully.'
+      flash[:notice] =  "The subject #{@subject.name} has been updated successfully."
       redirect_to(subjects_path)
     else
+      flash[:error] = "There is an error when trying to update the subject #{@subject.name}. Please try again."
       render('edit')
     end
   end
@@ -49,9 +51,10 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
 
     if @subject.destroy
-      flash[:notice] = "Subject #{@subject.name} has been deleted successfully"
+      flash[:notice] = "The subject #{@subject.name} has been deleted successfully."
       redirect_to(subjects_path)
     else
+      flash[:error] = "There is an error when trying to delete the subject #{@subject.name}. Please try again."
       render('delete')
     end
 
