@@ -3,12 +3,12 @@
   <%= f.text_field(:name, :class => 'form-control')  %>
 </div>
 <div class="form-group">
-  <%= label( :page, :page_id, 'Page ID') %>
-  <%= f.text_field(:page_id, :class => 'form-control')  %>
+  <%= label( :page, :page_id, 'Page') %>
+  <%= f.select(:page_id, @pages.map {|p| [p.name, p.id]}, {}, {:class => 'custom-select form-control'})  %>
 </div>
 <div class="form-group">
   <%= label( :page, :position, 'Position') %>
-  <%=	 f.text_field(:position, :class => 'form-control')  %>
+  <%=	 f.select(:position, 1..@sections_count, {}, {:class => 'custom-select form-control'})  %>
 </div>
 <div class="form-group">
   <%= label( :page, :visible, 'Visible') %>
@@ -16,10 +16,15 @@
 </div>
 <div class="form-group">
   <%= label( :page, :content_type, 'Content type') %>
-  <%=	f.text_field(:content_type, :class => 'form-control')  %>
+  <div class="form-check">
+    <%=	f.radio_button(:content_type, 'text',)  %> Text
+  </div>
+  <div class="form-check">
+    <%=	f.radio_button(:content_type, 'html')  %> HTML
+  </div>
 </div>
 <div class="form-group">
   <%= label( :page, :content, 'Content') %>
-  <%=	f.text_field(:content, :class => 'form-control')  %>
+  <%=	f.text_area(:content, :size => '40x10', :class => 'form-control')  %>
 </div>
 

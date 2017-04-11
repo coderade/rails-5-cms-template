@@ -12,6 +12,7 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new({:name => 'Default'})
+    @subjects_count = Subject.count + 1
   end
 
   def create
@@ -23,12 +24,14 @@ class SubjectsController < ApplicationController
       redirect_to(subjects_path)
     else
       flash[:error] = "There is an error when trying to create the subject #{@subject.name}. Please try again."
+      @subjects_count = Subject.count + 1
       render('new')
     end
   end
 
   def edit
     @subject = Subject.find(params[:id])
+    @subjects_count = Subject.count + 1
   end
 
   def update
@@ -39,6 +42,7 @@ class SubjectsController < ApplicationController
       redirect_to(subjects_path)
     else
       flash[:error] = "There is an error when trying to update the subject #{@subject.name}. Please try again."
+      
       render('edit')
     end
   end

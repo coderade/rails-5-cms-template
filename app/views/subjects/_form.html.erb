@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
   <%= label( :subject, :position, 'Position') %>
-  <%=	 f.text_field(:position, :class => 'form-control')  %>
+  <%=	 f.select(:position, 1..@subjects_count, {}, {:class => 'custom-select'})  %>
 </div>
 <div class="form-group">
   <%= label( :subject, :visible, 'Visible') %>

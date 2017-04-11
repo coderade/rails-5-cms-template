@@ -29,7 +29,9 @@
     </tr>
     <tr>
       <th>Content</th>
-      <td><%= @section.content %></td>
+      <td>
+        <textarea rows="5" class="form-control col-md-6"  readonly><%= @section.content %></textarea>
+      </td>
     </tr>
     <tr>
       <th>Created</th>
