@@ -1,6 +1,8 @@
-<div class="form-group">
+<%=  error_messages_for(f.object) %>
+
+<div class="form-group ">
   <%= label( :subject, :name, 'Name') %>
-  <%= f.text_field(:name, :class => 'form-control')  %>
+  <%= f.text_field(:name, :class => 'form-control has-error ')  %>
 </div>
 <div class="form-group">
   <%= label( :subject, :position, 'Position') %>
@@ -10,4 +12,7 @@
   <%= label( :subject, :visible, 'Visible') %>
   <%=	f.check_box(:visible)  %>
 </div>
-
+<div class="form-group">
+  <%= label( :subject, :created_at, 'Position') %>
+  <%=	 f.datetime_select(:created_at, {}, {:class => 'custom-select'})  %>
+</div>

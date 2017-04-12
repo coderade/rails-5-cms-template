@@ -9,4 +9,6 @@ class Subject < ApplicationRecord
 
   scope :search, lambda {|query| where(['name LIKE ?', "%#{query}%"])}
 
+  validates_presence_of :name
+  validates_uniqueness_of :position
 end
