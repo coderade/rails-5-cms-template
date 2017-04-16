@@ -14,6 +14,11 @@ class Page < ApplicationRecord
   scope :sorted, -> {order(:position=> :asc)}
   scope :newest_first, -> {order(:created_at=> :desc)}
 
-  validates_presence_of :name
+  validates :name, :presence => true,
+            :length => {:maximum =>255 }
+
+  validates :permalink, :presence => true,
+            :length => {:within => 3..255 },
+            :uniqueness => true
   validates_uniqueness_of :position
 end
