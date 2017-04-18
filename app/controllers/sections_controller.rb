@@ -2,6 +2,10 @@ class SectionsController < ApplicationController
 
   layout 'admin'
 
+  before_action :set_sections_count, :only => [:new, :create, :edit, :update ]
+  before_action :find_pages, :only => [:new, :create, :edit, :update ]
+
+
   def index
     @sections = Section.sorted
   end
@@ -12,8 +16,6 @@ class SectionsController < ApplicationController
 
   def new
     @section = Section.new
-    @sections_count = Section.count + 1
-    @pages = Page.sorted
   end
 
   def create
@@ -25,16 +27,12 @@ class SectionsController < ApplicationController
       redirect_to(sections_path)
     else
       "There is an error when trying to create the section #{@section.name}. Please try again."
-      @sections_count = Section.count + 1
-      @pages = Page.sorted
       render('new')
     end
   end
 
   def edit
     @section = Section.find(params[:id])
-    @sections_count = Section.count + 1
-    @pages = Page.sorted
   end
 
   def update
@@ -45,8 +43,6 @@ class SectionsController < ApplicationController
       redirect_to(section_path(@section))
     else
       flash[:error] = "There is an error when trying to update the section #{@section.name}. Please try again."
-      @sections_count = Section.count + 1
-      @pages = Page.sorted
       render('edit')
     end
   end
@@ -57,7 +53,6 @@ class SectionsController < ApplicationController
 
   def destroy
     @section = Section.find(params[:id])
-
     if @section.destroy
       flash[:notice] = "The section #{@section.name} has been deleted successfully"
       redirect_to(sections_path)
@@ -73,4 +68,16 @@ class SectionsController < ApplicationController
   def section_params
     params.require(:section).permit(:page_id, :name, :position, :visible, :content_type, :content)
   end
+
+  def set_sections_count
+    @sections_count = Section.count
+    if params[:action] == 'new' || params[:action] == 'create'
+      @sections_count += 1
+    end
+  end
+
+  def find_pages
+    @pages = Page.sorted
+  end
+
 end
