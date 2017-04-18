@@ -6,6 +6,7 @@ class SubjectsController < ApplicationController
   before_action :set_subjects_count, :only => [:new, :create, :edit, :update ]
 
   def index
+    logger.debug('Testing the logger')
     @subjects = Subject.sorted
   end
 
