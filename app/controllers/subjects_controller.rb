@@ -23,7 +23,7 @@ class SubjectsController < ApplicationController
     @subject.save
 
     if @subject.save
-      flash[:notice] =  "The subject #{@subject.name} has been updated successfully."
+      flash[:notice] =  "The subject #{@subject.name} has been created successfully."
       redirect_to(subjects_path)
     else
       flash[:error] = "There is an error when trying to create the subject #{@subject.name}. Please try again."
@@ -77,4 +77,7 @@ class SubjectsController < ApplicationController
     end
   end
 
+  def find_subjects
+    @subjects = Subject.sorted
+  end
 end
