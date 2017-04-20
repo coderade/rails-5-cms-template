@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'access/menu'
   get 'access/login'
 
-  post 'access/attemp_login'
+  post 'access/attempt_login'
   get 'access/logout'
 
   resources :subjects do
