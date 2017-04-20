@@ -2,6 +2,7 @@ class SectionsController < ApplicationController
 
   layout 'admin'
 
+  before_action :confirm_logged_in
   before_action :set_sections_count, :only => [:new, :create, :edit, :update ]
   before_action :find_pages, :only => [:new, :create, :edit, :update ]
 

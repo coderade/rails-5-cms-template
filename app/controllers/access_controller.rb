@@ -2,6 +2,8 @@ class AccessController < ApplicationController
 
   layout 'admin'
 
+  before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
+
   def menu
       #display text & links
   end
@@ -9,7 +11,6 @@ class AccessController < ApplicationController
   def login
     # login form
   end
-
   def attempt_login
     if params[:username].present? && params[:password].present?
       found_user = AdminUser.where(:username => params[:username]).first
@@ -35,4 +36,5 @@ class AccessController < ApplicationController
     flash[:notice] = 'You are now logged out.'
     redirect_to(access_login_path)
   end
+
 end

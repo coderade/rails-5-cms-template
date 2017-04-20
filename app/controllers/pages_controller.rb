@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 
   layout 'admin'
 
+  before_action :confirm_logged_in
   before_action :find_subjects, :only => [:new, :create, :edit, :update ]
   before_action :set_pages_count, :only => [:new, :create, :edit, :update ]
 
@@ -80,4 +81,5 @@ class PagesController < ApplicationController
   def page_params
     params.require(:page).permit(:subject_id, :name, :position, :visible, :permalink)
   end
+
 end
