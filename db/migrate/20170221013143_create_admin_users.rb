@@ -5,13 +5,16 @@ class CreateAdminUsers < ActiveRecord::Migration[5.0]
       t.column 'first_name', :string, :limit => 25
       t.string 'last_name', :limit => 50
       t.string 'email', :default => '', :null => false
-      t.string 'password', :limit => 40
+      t.string 'username', :limit => 25
+      t.string 'hashed_password', :limit => 40
 
       t.timestamps
       # t.datetime 'created_at'
       # t.datetime 'updated_at'
 
     end
+    add_index(:admin_users, :username, using: 'btree')
+
   end
 
   def down
