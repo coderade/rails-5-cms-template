@@ -11,8 +11,9 @@
   <%= form_for(@subject, :html => {:class => 'form-edit'})  do  |f| %>
 
       <%=	 render(:partial => 'form', :locals => {:f => f}) %>
+
       <div class="form-buttons">
-          <%=	 f.submit('Create Subject', :class => 'btn btn-primary') %>
+        <%=	 f.submit('Create', :class => 'btn btn-primary')  %>
       </div>
   <% end %>
 </div>

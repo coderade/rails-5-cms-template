@@ -9,13 +9,12 @@
   <strong><%= @subject.name %></strong>
 </h2>
 
-
 <div class="subjects edit">
   <%= form_for(@subject, :html => {:class => 'form-edit'})  do  |f| %>
       <%=	 render(:partial => 'form', :locals => {:f => f}) %>
 
       <div class="form-buttons">
-        <%=	 f.submit('Update Subject', :class => 'btn btn-primary') %>
+        <%=	 f.submit('Update', :class => 'btn btn-primary') %>
       </div>
   <% end %>
 </div>

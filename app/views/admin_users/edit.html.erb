@@ -1,17 +1,14 @@
-<% @page_title = 'Edit page ' + @page.name %>
+<% @page_title = 'Update Admin user' %>
 
-<%= link_to pages_path , :class => 'btn btn-secondary btn-back' do %>
+<%= link_to admin_users_path, :class => 'btn btn-secondary btn-back' do %>
     <i class="fa fa-arrow-left"></i>
     <span>Back to List</span>
 <% end %>
 
-<h2>Edit page
-  <strong><%= @page.name %></strong>
-</h2>
+<h2>Update Admin User</h2>
 
-
-<div class="pages new">
-  <%= form_for(@page, :html => {:class => 'form-edit'})  do  |f| %>
+<div class="admin-users new">
+  <%= form_for(@admin_user, :html => {:class => 'form-edit'})  do  |f| %>
       <%=	 render(:partial => 'form', :locals => {:f => f}) %>
 
       <div class="form-buttons">

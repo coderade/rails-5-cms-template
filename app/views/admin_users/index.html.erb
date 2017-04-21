@@ -1,0 +1,33 @@
+<% @page_title = 'Admin Users' %>
+
+<div class="admin-users index">
+  <h2>Admin users</h2>
+
+  <%= link_to new_admin_user_path , :class => 'btn btn-secondary btn-back' do %>
+      <i class="fa fa-plus-square-o"></i>
+      <span>New Admin User</span>
+  <% end %>
+
+  <table class="table table-striped">
+    <thead class="thead-inverse">
+    <tr>
+      <th>Username</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%	@admin_users.each do |admin_user| %>
+        <tr>
+          <td> <%= admin_user.username %> </td>
+          <td class="center"> <%=	admin_user.name %> </td>
+          <td class="center"> <%= mail_to(admin_user.email) %> </td>
+          <td class="actions">
+            <%= link_to('Edit', edit_admin_user_path(admin_user), :class => 'btn btn-info') %>
+            <%= link_to('Delete', delete_admin_user_path(admin_user), :class => 'btn btn-danger') %>
+          </td>
+        </tr>
+    <% end %>
+    </table>
+</div>
