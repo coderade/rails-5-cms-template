@@ -1,2 +1,22 @@
-<h2>Simple CMS</h2>
-<p>Simple CMS created using Ruby on Rails for Didatic Purposes</p>
+<% @page_title = 'Home' %>
+<div class="cms-header">
+  <div class="container">
+    <h1 class="cms-title"> Rails Simple CMS</h1>
+    <p class="lead cms-description">Simple CMS created using Ruby on Rails for didatic purposes.</p>
+  </div>
+</div>
+
+<h2 class="table-title">Pages</h2>
+
+<div class="list-group">
+  <%	@pages.each do |page| %>
+    <a href="/show/<%= page.permalink%>" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= page.name%></h5>
+        <small><%= time_ago_in_words(page.created_at) %> ago</small>
+      </div>
+      <p class="mb-1"><%= get_clean_text(content_text_by_type(page.sections.visible.sorted.first)) %></p>
+      <small><%= pluralize(page.sections.size, 'section') %></small>
+    </a>
+  <% end %>
+</div>

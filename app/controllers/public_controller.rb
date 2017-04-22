@@ -4,7 +4,7 @@ class PublicController < ApplicationController
 
 
   def index
-    #intro text
+    @pages = Page.visible
   end
 
   def show

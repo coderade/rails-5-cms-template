@@ -1,0 +1,46 @@
+<nav class="navbar navbar-toggleable-md navbar-light" style="background-color: #e3f2fd;">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Simple CMS</a>
+
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <% if session[:user_id].present? %>
+          <li class="nav-item"><%=	 link_to('Subjects', subjects_path, :class => 'nav-link') %></li>
+          <li class="nav-item"><%=	 link_to('Pages', pages_path, :class => 'nav-link') %></li>
+          <li class="nav-item"><%=	 link_to('Sections', sections_path, :class => 'nav-link') %></li>
+          <li class="nav-item"><%=	 link_to('Users', admin_users_path , :class => 'nav-link') %></li>
+
+          <!-- TODO add colapse when a new bootstrap version be added
+         see https://github.com/twbs/bootstrap/issues/22256
+         -->
+          <!--<li class="nav-item dropdown">-->
+          <!--<a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+          <!--Dropdown link-->
+          <!--</a>-->
+          <!--<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">-->
+          <!--<a class="dropdown-item" href="#">Action</a>-->
+          <!--<a class="dropdown-item" href="#">Another action</a>-->
+          <!--<a class="dropdown-item" href="#">Something else here</a>-->
+          <!--</div>-->
+          <!--</li>-->
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item"><%= link_to('Logout', access_logout_path, :class => 'nav-link') %></li>
+    </ul>
+
+    <% else %>
+    </ul>
+    <ul class="nav navbar-nav na  vbar-right">
+      <li class="nav-item">  <%= link_to('Login', access_login_path, :class => 'nav-link') %></li>
+    </ul>
+
+    <%	end  %>
+  </div>
+</nav>

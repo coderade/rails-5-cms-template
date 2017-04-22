@@ -1,18 +1,14 @@
 <% @page_title = @page.name %>
 
-<h2> <%= @page.name %></h2>
+<div class="cms-page">
+  <h2 class="cms-page-title"><%= @page.name %></h2>
+  <p class="cms-page-meta"> <%= @page.created_at.strftime('%B %d, %Y %H:%M')%> by
+    <a href="http://github.com/coderade">Coderade</a>
+  </p>
 
-<% @page.sections.visible.sorted.each  do |section| %>
-
-    <div class="section">
-      <% case section.content_type %>
-      <% when 'HTML' %>
-          <%=	 raw(sanitize(section.content, :tags => %w(strong em a))) %>
-      <% when 'text' %>
-         <%= simple_format(section.content) %>
-      <% else %>
-          No content available yet. :(
-      <% end %>
-    </div>
-
-<% end %>
+  <% @page.sections.visible.sorted.each  do |section| %>
+      <div class="section">
+         <%= content_text_by_type(section) %>
+      </div>
+  <% end %>
+</div>
