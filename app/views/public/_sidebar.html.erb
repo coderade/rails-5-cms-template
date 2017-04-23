@@ -1,0 +1,26 @@
+<% subjects ||= []%>
+
+<nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-item">
+      <a class="nav-link <%= add_class_if_current_page(root_path, 'active') %>" href="/">Home</a>
+    </li>
+  </ul>
+
+  <ul class="nav nav-pills flex-column">
+    <% subjects.each do |subject| %>
+        <li class="nav-item">
+          <a class="nav-link" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><%= subject.name %></a>
+          <div class="collapse collapse-wrapper" id="submenu1" aria-expanded="false">
+            <ul class="flex-column pl-2 nav">
+              <% subject.pages.visible.sorted.each do |page| %>
+              <li class="nav-item">
+                <%= link_to(page.name, public_show_path(page.permalink), :class => "nav-link py-0 #{add_class_if_current_page(public_show_path(page.permalink), 'active')}") %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+    <%end %>
+  </ul>
+</nav>

@@ -6,16 +6,22 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
+
 <%=	 render(:partial => 'application/navbar') %>
-<div class="main">
-  <div class="container">
+
+<%=	 render(:partial => 'public/sidebar', :locals => { :subjects => @subjects}) %>
+
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <div class="container main">
     <%= yield %>
   </div>
-</div>
-<footer class="footer">
+</main>
+
+<footer class="footer bg-inverse">
   <div class="container">
     <span class="text-muted">&copy; Coderade.io</span>
   </div>
 </footer>
+
 </body>
 </html>

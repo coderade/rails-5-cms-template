@@ -29,7 +29,15 @@ module ApplicationHelper
 
 
   def get_clean_text(text)
-     truncate(sanitize(text, :tags=>[]), :length => 500)
+     truncate(sanitize(text, :tags=>[]), :length => 200)
+  end
+
+  def add_class_if_current_page(url, style_class)
+    if current_page?(url)
+      style_class
+    else
+      ''
+    end
   end
 
 end
