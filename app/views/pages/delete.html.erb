@@ -1,7 +1,6 @@
-
 <% @page_title = 'Delete page ' + @page.name %>
 
-<%= link_to pages_path , :class => 'btn btn-secondary btn-back' do %>
+<%= link_to pages_path(:subject_id => @subject.id), :class => 'btn btn-secondary btn-back' do %>
     <i class="fa fa-arrow-left"></i>
     <span>Back to List</span>
 <% end %>
@@ -9,7 +8,7 @@
 <div class="pages delete">
   <h2>Delete the page <strong><%= @page.name %></strong></h2>
 
-  <%= form_for(@page, :method => 'delete') do  |f| %>
+  <%= form_for(@page, :url => pages_path(@page, :subject_id => @subject.id), :method => 'delete')  do  |f| %>
 
       <p class="alert alert-danger delete-alert"> Are you sure that you want to permanently delete the page
         <strong> <%=	f.object.name %> </strong> ?

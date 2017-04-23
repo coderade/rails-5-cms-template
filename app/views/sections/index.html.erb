@@ -25,7 +25,7 @@
             <td> <%= section.page_id %> </td>
             <td> <%= section.name %> </td>
             <td> <%=	status_tag(section.visible)%> </td>
-            <td>
+            <td class="actions">
               <%= link_to('Show', section_path(section), :class => 'btn btn-success') %>
               <%= link_to('Edit', edit_section_path(section), :class => 'btn btn-info') %>
               <%= link_to('Delete', delete_section_path(section), :class => 'btn btn-danger') %>

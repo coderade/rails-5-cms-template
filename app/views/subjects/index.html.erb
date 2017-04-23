@@ -26,6 +26,7 @@
           <td class="center"> <%=	status_tag(subject.visible) %> </td>
           <td class="center"> <%= subject.pages.size %> </td>
           <td class="actions">
+            <%= link_to('View pages', pages_path(:subject_id => subject.id), :class => 'btn btn-info') %>
             <%= link_to('Show', subject_path(subject), :class => 'btn btn-success') %>
             <%= link_to('Edit', edit_subject_path(subject), :class => 'btn btn-info') %>
             <%= link_to('Delete', delete_subject_path(subject), :class => 'btn btn-danger') %>

@@ -3,11 +3,12 @@ class PagesController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
+  before_action :find_current_subject
   before_action :find_subjects, :only => [:new, :create, :edit, :update ]
   before_action :set_pages_count, :only => [:new, :create, :edit, :update ]
 
   def index
-    @pages = Page.sorted
+    @pages = @subject.pages.sorted
   end
 
   def show
@@ -15,7 +16,7 @@ class PagesController < ApplicationController
   end
 
   def new
-    @page = Page.new
+    @page = Page.new(:subject_id => @subject.id)
   end
 
   def create
@@ -24,7 +25,7 @@ class PagesController < ApplicationController
 
     if @page.save
       flash[:notice] = "The page #{@page.name} has been created successfully."
-      redirect_to(pages_path)
+      redirect_to(pages_path(:subject_id => @subject.id))
     else
       "There is an error when trying to create the page #{@page.name}. Please try again."
       render('new')
@@ -32,7 +33,6 @@ class PagesController < ApplicationController
   end
 
   def edit
-
     @page = Page.find(params[:id])
   end
 
@@ -41,7 +41,7 @@ class PagesController < ApplicationController
 
     if @page.update_attributes(page_params)
       flash[:notice] = "The page #{@page.name} has been updated successfully."
-      redirect_to(page_path(@page))
+      redirect_to(pages_path(:subject_id => @subject.id))
     else
       flash[:error] = "There is an error when trying to update the page #{@page.name}. Please try again."
       render('edit')
@@ -57,7 +57,7 @@ class PagesController < ApplicationController
 
     if @page.destroy
       flash[:notice] = "The page #{@page.name} has been deleted successfully."
-      redirect_to(pages_path)
+      redirect_to(pages_path(:subject_id => @subject.id))
     else
       flash[:error] = "There is an error when trying to delete the page #{@page.name}."
       render('delete')
@@ -66,6 +66,10 @@ class PagesController < ApplicationController
   end
 
   private
+
+  def find_current_subject
+    @subject = Subject.find(params[:subject_id])
+  end
 
   def find_subjects
     @subjects = Subject.sorted

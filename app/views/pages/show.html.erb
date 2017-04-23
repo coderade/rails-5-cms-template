@@ -1,6 +1,6 @@
 <% @page_title = 'Show page ' + @page.name  %>
 
-<%= link_to pages_path , :class => 'btn btn-secondary btn-back' do %>
+<%= link_to pages_path(:subject_id => @subject.id) , :class => 'btn btn-secondary btn-back' do %>
     <i class="fa fa-arrow-left"></i>
     <span>Back to List</span>
 <% end %>
