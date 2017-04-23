@@ -1,9 +1,14 @@
 <% @page_title = 'All Sections' %>
 
+<%= link_to pages_path(:subject_id => @page.subject_id) , :class => 'btn btn-secondary btn-back' do %>
+    <i class="fa fa-arrow-left"></i>
+    <span>Back to Pages</span>
+<% end %>
+
 <div class="sections index">
   <h2>Sections</h2>
 
-  <%= link_to new_section_path , :class => 'btn btn-secondary btn-back' do %>
+  <%= link_to new_section_path(:page_id => @page.id) , :class => 'btn btn-secondary btn-back' do %>
       <i class="fa fa-plus-square-o"></i>
       <span>New Section</span>
   <% end %>
@@ -21,14 +26,14 @@
     <tbody>
       <%	@sections.each do |section| %>
           <tr>
-            <td> <%=	 section.position %> </td>
+            <td> <%= section.position %> </td>
             <td> <%= section.page_id %> </td>
             <td> <%= section.name %> </td>
-            <td> <%=	status_tag(section.visible)%> </td>
+            <td> <%= status_tag(section.visible)%> </td>
             <td class="actions">
-              <%= link_to('Show', section_path(section), :class => 'btn btn-success') %>
-              <%= link_to('Edit', edit_section_path(section), :class => 'btn btn-info') %>
-              <%= link_to('Delete', delete_section_path(section), :class => 'btn btn-danger') %>
+              <%= link_to('Show', section_path(section, :page_id => @page.id), :class => 'btn btn-success') %>
+              <%= link_to('Edit', edit_section_path(section, :page_id => @page.id), :class => 'btn btn-info') %>
+              <%= link_to('Delete', delete_section_path(section, :page_id => @page.id), :class => 'btn btn-danger') %>
             </td>
           </tr>
       <% end %>

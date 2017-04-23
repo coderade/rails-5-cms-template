@@ -3,12 +3,13 @@ class SectionsController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
+  before_action :find_current_page
   before_action :set_sections_count, :only => [:new, :create, :edit, :update ]
   before_action :find_pages, :only => [:new, :create, :edit, :update ]
 
 
   def index
-    @sections = Section.sorted
+    @sections = @page.sections.sorted
   end
 
   def show
@@ -21,11 +22,10 @@ class SectionsController < ApplicationController
 
   def create
     @section = Section.new(section_params)
-    @section.save
 
     if @section.save
       flash[:notice] = "The section #{@section.name} has been created successfully."
-      redirect_to(sections_path)
+      redirect_to(sections_path(:page_id => @page.id))
     else
       "There is an error when trying to create the section #{@section.name}. Please try again."
       render('new')
@@ -41,7 +41,7 @@ class SectionsController < ApplicationController
 
     if @section.update_attributes(section_params)
       flash[:notice] = "The section #{@section.name} has been updated successfully."
-      redirect_to(section_path(@section))
+      redirect_to(sections_path(:page_id => @page.id))
     else
       flash[:error] = "There is an error when trying to update the section #{@section.name}. Please try again."
       render('edit')
@@ -56,7 +56,7 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     if @section.destroy
       flash[:notice] = "The section #{@section.name} has been deleted successfully"
-      redirect_to(sections_path)
+      redirect_to(sections_path(:page_id => @page.id))
     else
       flash[:error] = "There is an error when trying to delete the section #{@section.name}."
       render('delete')
@@ -65,6 +65,10 @@ class SectionsController < ApplicationController
   end
 
   private
+
+  def find_current_page
+    @page = Page.find(params[:page_id])
+  end
 
   def section_params
     params.require(:section).permit(:page_id, :name, :position, :visible, :content_type, :content)
