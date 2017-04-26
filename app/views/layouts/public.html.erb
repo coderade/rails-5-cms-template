@@ -13,6 +13,17 @@
 
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
   <div class="container main">
+    <% if flash[:notice].present? %>
+        <div class="notice">
+          <p class="alert alert-success"> <%= flash[:notice] %> </p>
+        </div>
+    <% elsif flash[:error].present? %>
+        <div class="error">
+          <p class="alert alert-danger"> <%= flash[:error] %> </p>
+        </div>
+    <% else %>
+    <% end %>
+
     <%= yield %>
   </div>
 </main>
