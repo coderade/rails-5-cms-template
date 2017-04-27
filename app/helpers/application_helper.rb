@@ -17,14 +17,16 @@ module ApplicationHelper
   end
 
   def content_text_by_type(section)
-    case section.content_type
-      when 'HTML'
-        raw(sanitize(section.content, :tags => %w(strong em a)))
-      when 'text'
-        simple_format(section.content)
-      else
-        'No content available yet. :('
+    if section.present?
+      case section.content_type
+        when 'HTML'
+          raw(sanitize(section.content, :tags => %w(strong em a)))
+        when 'text'
+          simple_format(section.content)
       end
+    else
+      'No content available yet. Please add some content.'
+    end
   end
 
 
