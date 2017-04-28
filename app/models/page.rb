@@ -1,5 +1,7 @@
 class Page < ApplicationRecord
 
+  # acts_as_list :scope => :subject
+
   # disable belongs_to presence validation
   # belongs_to :subject, { :optional => true}
   belongs_to :subject

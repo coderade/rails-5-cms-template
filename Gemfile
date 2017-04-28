@@ -32,6 +32,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Add acts_as_list gem
+#gem 'acts_as_list' -> not working propperly yet
+
 # Add the bootstrap
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
