@@ -11,7 +11,7 @@
 
 
 <div class="pages new">
-  <%= form_for(@page, :url => pages_path(@page, :subject_id => @subject.id), :html => {:class => 'form-edit'})  do  |f| %>
+  <%= form_for(@page, :url => page_path(@page, :subject_id => @subject.id), :html => {:class => 'form-edit'})  do  |f| %>
       <%=	 render(:partial => 'form', :locals => {:f => f}) %>
 
       <div class="form-buttons">

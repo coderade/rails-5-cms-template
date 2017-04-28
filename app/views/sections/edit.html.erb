@@ -10,7 +10,7 @@
 </h2>
 
 <div class="sections update">
-  <%= form_for(@section, :url => sections_path(@section, :page_id => @page.id), :html => {:class => 'form-edit'})  do  |f| %>
+  <%= form_for(@section, :url => section_path(@section, :page_id => @page.id), :html => {:class => 'form-edit'})  do  |f| %>
       <%=	 render(:partial => 'form', :locals => {:f => f}) %>
 
       <div class="form-buttons">

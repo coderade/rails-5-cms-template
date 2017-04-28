@@ -25,7 +25,7 @@ class SectionsController < ApplicationController
 
     if @section.save
       flash[:notice] = "The section #{@section.name} has been created successfully."
-      redirect_to(sections_path(:page_id => @page.id))
+      redirect_to(section_path(@section, :page_id => @page.id))
     else
       "There is an error when trying to create the section #{@section.name}. Please try again."
       render('new')
@@ -41,7 +41,7 @@ class SectionsController < ApplicationController
 
     if @section.update_attributes(section_params)
       flash[:notice] = "The section #{@section.name} has been updated successfully."
-      redirect_to(sections_path(:page_id => @page.id))
+      redirect_to(section_path(@section, :page_id => @page.id))
     else
       flash[:error] = "There is an error when trying to update the section #{@section.name}. Please try again."
       render('edit')

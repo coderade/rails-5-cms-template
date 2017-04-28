@@ -10,7 +10,6 @@
   <h2>Delete the Section <strong><%= @section.name %></strong></h2>
 
   <%= form_for(@section, :url => section_path(@section, :page_id => @page.id), :method => 'delete') do  |f| %>
-<%=	 f.submit('Yes', :class => 'btn btn-danger') %>
 
       <p class="alert alert-danger delete-alert"> Are you sure that you want to permanently delete the section
         <strong> <%=	f.object.name %> </strong> ?

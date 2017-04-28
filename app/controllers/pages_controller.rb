@@ -21,7 +21,7 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(page_params)
-
+    @page.subject = @subject
     if @page.save
       flash[:notice] = "The page #{@page.name} has been created successfully."
       redirect_to(pages_path(:subject_id => @subject.id))
@@ -40,7 +40,7 @@ class PagesController < ApplicationController
 
     if @page.update_attributes(page_params)
       flash[:notice] = "The page #{@page.name} has been updated successfully."
-      redirect_to(pages_path(:subject_id => @subject.id))
+      redirect_to(page_path(@page, :subject_id => @subject.id))
     else
       flash[:error] = "There is an error when trying to update the page #{@page.name}. Please try again."
       render('edit')
