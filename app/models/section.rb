@@ -17,5 +17,4 @@ class Section < ApplicationRecord
   validates :content_type, :inclusion => {:in => CONTENT_TYPES,
                                           :message => "must be one of: #{CONTENT_TYPES.join(',')}"}
   validates_presence_of :content
-  validates_uniqueness_of :position
 end

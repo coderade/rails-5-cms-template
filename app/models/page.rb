@@ -22,5 +22,4 @@ class Page < ApplicationRecord
   validates :permalink, :presence => true,
             :length => {:within => 3..255 },
             :uniqueness => true
-  validates_uniqueness_of :position
 end
