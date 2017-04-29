@@ -8,19 +8,23 @@
   </ul>
 
   <ul class="nav nav-pills flex-column">
-    <% subjects.each do |subject| %>
-        <li class="nav-item">
-          <a class="nav-link" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><%= subject.name %></a>
-          <div class="collapse collapse-wrapper" id="submenu1" aria-expanded="false">
-            <ul class="flex-column pl-2 nav">
-              <% subject.pages.visible.sorted.each do |page| %>
-              <li class="nav-item">
-                <%= link_to(page.name, public_show_path(page.permalink), :class => "nav-link py-0 #{add_class_if_current_page(public_show_path(page.permalink), 'active')}") %>
-              </li>
-              <% end %>
-            </ul>
-          </div>
-        </li>
+    <% subjects.each.with_index do |subject, index| %>
+        <% if subject.pages.visible.present? %>
+          <li class="nav-item">
+            <a class="nav-link" href="#submenu<%= index%>" data-toggle="collapse" data-target="#submenu<%= index%>"><%= subject.name %></a>
+            <div class="collapse collapse-wrapper" id="submenu<%= index%>" aria-expanded="false">
+              <ul class="flex-column pl-2 nav">
+                <% subject.pages.visible.sorted.each do |page| %>
+                    <li class="nav-item">
+                      <%= link_to(page.name, public_show_path(page.permalink), :class => "nav-link py-0
+                        #{add_class_if_current_page(public_show_path(page.permalink), 'active')}") %>
+                    </li>
+                <% end %>
+              </ul>
+            </div>
+          </li>
+        <%end %>
     <%end %>
   </ul>
 </nav>
+
