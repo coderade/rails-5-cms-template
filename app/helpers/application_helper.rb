@@ -20,7 +20,7 @@ module ApplicationHelper
     if section.present?
       case section.content_type
         when 'HTML'
-          raw(sanitize(section.content, :tags => %w(strong em a)))
+          raw(sanitize(section.content, :tags => %w(strong em a br)))
         when 'text'
           simple_format(section.content)
       end

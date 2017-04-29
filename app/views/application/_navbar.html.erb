@@ -2,7 +2,7 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Rails Simple CMS</a>
+  <a class="navbar-brand" href="/">Rails Simple CMS</a>
 
 
   <div class="collapse navbar-collapse" id="navbarColor03">
@@ -13,7 +13,6 @@
 
       <% if session[:user_id].present? %>
           <li class="nav-item"><%=	 link_to('Contents', subjects_path, :class => 'nav-link') %></li>
-          <li class="nav-item"><%=	 link_to('Sections', sections_path, :class => 'nav-link') %></li>
           <li class="nav-item"><%=	 link_to('Users', admin_users_path , :class => 'nav-link') %></li>
 
           <!-- TODO add colapse when a new bootstrap version be added
