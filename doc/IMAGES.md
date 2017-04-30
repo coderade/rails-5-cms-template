@@ -16,7 +16,7 @@ Project Images
 ![Login page](login.png)
 
 
-## Content Managing page
+## Contents Managing page
 
 ![Content Managing page](contents_manage.png)
 

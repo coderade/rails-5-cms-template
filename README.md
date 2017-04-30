@@ -134,9 +134,9 @@ There are few project images examples that you can view in the doc, to take a lo
 * [Index page](doc/IMAGES.md#index-page)
 * [Pages view page](doc/IMAGES.md#view-content-page)
 * [Login page](doc/IMAGES.md#login-page)
-* [Content Managing page](doc/IMAGES.md#content-managing-page)
-* [Content Editing page](doc/IMAGES.md#content-editing-page)
-* [Users Managing page](doc/IMAGES.md#user-managing-page)
+* [Content Managing page](doc/IMAGES.md#contents-managing-page)
+* [Content Edit page](doc/IMAGES.md#content-edit-page)
+* [Users Managing page](doc/IMAGES.md#users-managing-page)
 
 
 For more information on Rails please check out [Ruby on Rails](http://rubyonrails.org/).
