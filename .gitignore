@@ -20,3 +20,6 @@
 # User-specific stuff:
 .idea
 .idea/vcs.xml
+
+# Database settings
+config/database.yml
