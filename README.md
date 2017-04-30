@@ -119,7 +119,7 @@ And to save the created user:
    user.save!
    ```
 
-If the result be something like the following:
+If the result is something like the image below:
 
 ![](doc/user_save.png)
 
