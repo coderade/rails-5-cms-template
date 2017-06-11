@@ -1,7 +1,7 @@
-Rails Simple CMS
+Rails Simple CMS Template
 ================
 
-This is an example of CMS application created using Ruby on Rails 5.
+This is the application template of a CMS application created using Ruby on Rails 5.
 
 ![](doc/index.png)
 
