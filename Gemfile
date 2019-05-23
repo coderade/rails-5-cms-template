@@ -36,7 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 #gem 'acts_as_list' -> not working propperly yet
 
 # Add the bootstrap
-gem 'bootstrap', '~> 4.1.2.0'
+gem 'bootstrap', '~> 4.3.1'
 
 # Add the font-awesome icons
 gem 'font-awesome-rails', '>= 4.7.0.4'
