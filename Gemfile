@@ -22,7 +22,7 @@ gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '>= 4.3.3'
+gem 'jquery-rails', '>= 4.3.5'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -39,7 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.3.1.0'
 
 # Add the font-awesome icons
-gem 'font-awesome-rails', '>= 4.7.0.4'
+gem 'font-awesome-rails', '>= 4.7.0.5'
 
 # Tooltips and popovers depend on tether for positioning.
 source 'https://rails-assets.org' do
