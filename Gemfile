@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
+gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
@@ -39,7 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.3.1.0'
 
 # Add the font-awesome icons
-gem 'font-awesome-rails', '>= 4.7.0.5'
+gem 'font-awesome-rails', '>= 4.7.0.6'
 
 # Tooltips and popovers depend on tether for positioning.
 source 'https://rails-assets.org' do
